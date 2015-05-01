@@ -1,1 +1,22 @@
-h3 DOG NEW
+h3 NEW DOG
+
+.row
+  .col-xs-3
+    form(name='dogForm', novalidate)
+      .form-group
+        label(for='name') Name
+        input.form-control#name(type='text', name='name', ng-model='dog.name')
+      .form-group
+        label(for='age') Age
+        input.form-control#age(type='number', name='age', ng-model='dog.age')
+      .form-group
+        label(for='sex') Sex
+        select.form-control#sex(name='sex', ng-model='dog.sex')
+          option Male
+          option Female
+      .form-group
+        label(for='photo') Photo
+        input.form-control#photo(type='url', name='photo', ng-model='dog.photo')
+      .form-group
+        button.btn.btn-success(type='submit', ng-click='add(dog)') Add Dog
+  .col-xs-9
