@@ -10,8 +10,20 @@ angular.module('animalfarm')
     this.photo = obj.photo;
   }
 
+  Dog.findById = function(dogId){
+    return $http.get(nodeUrl + '/dogs/' + dogId);
+  };
+
+  Dog.find = function(){
+    return $http.get(nodeUrl + '/dogs');
+  };
+
   Dog.prototype.save = function(){
     return $http.post(nodeUrl + '/dogs', this);
+  };
+
+  Dog.destroy = function(dogId){
+    return $http.delete(nodeUrl + '/dogs/' + dogId);
   };
 
   return Dog;
