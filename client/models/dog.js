@@ -4,6 +4,7 @@ angular.module('animalfarm')
 .factory('Dog', function($http, nodeUrl){
 
   function Dog(obj){
+    this._id = obj._id;
     this.name = obj.name;
     this.age = obj.age;
     this.sex = obj.sex;
@@ -22,8 +23,12 @@ angular.module('animalfarm')
     return $http.post(nodeUrl + '/dogs', this);
   };
 
-  Dog.destroy = function(dogId){
-    return $http.delete(nodeUrl + '/dogs/' + dogId);
+  Dog.prototype.update = function(){
+    return $http.put(nodeUrl + '/dogs/' + this._id, this);
+  };
+
+  Dog.prototype.destroy = function(){
+    return $http.delete(nodeUrl + '/dogs/' + this._id);
   };
 
   return Dog;

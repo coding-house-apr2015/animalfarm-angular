@@ -8,7 +8,8 @@ angular.module('animalfarm')
   });
 
   $scope.destroy = function(obj){
-    Dog.destroy(obj._id)
+    var dog = new Dog(obj);
+    dog.destroy()
     .then(function(response){
       _.remove($scope.dogs, function(dog){
         return dog._id === response.data._id;

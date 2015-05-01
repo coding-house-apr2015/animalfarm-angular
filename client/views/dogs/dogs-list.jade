@@ -6,6 +6,7 @@ h3 DOG LIST
       thead
         tr
           th Show
+          th Edit
           th Delete
           th Name
           th Age
@@ -13,6 +14,7 @@ h3 DOG LIST
       tbody
         tr(ng-repeat='dog in dogs')
           td: a.btn.btn-info.btn-xs(ui-sref='dogs.show({dogId:dog._id})') Show
+          td: a.btn.btn-warning.btn-xs(ui-sref='dogs.edit({dogId:dog._id})') Edit
           td: button.btn.btn-danger.btn-xs(ng-click='destroy(dog)') Delete
           td {{dog.name}}
           td {{dog.age}}
